@@ -1,0 +1,5 @@
+fetch(url) hace un GET (una petición para obtener algo) a la URL que se le especifique
+Esta función nos retornará algo (lo que sea que se haya definido en el código del servidor).
+No podemos trabajar con lo que nos retorne directamente, ya que el servidor se tomará un tiempo en responder.
+Para eso utilizaremos el .then(func), que ejecutará el código de la función que le demos (en este caso, func), pasándole la respuesta del servidor como parámetro.
+El .then suele ir por debajo de la función que hayamos llamado (fetch en este caso) e indentado, por pura estética nada más. Nótese que se puede hacer fetch(url).then(func) sin dejar ningún espacio

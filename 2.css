@@ -1,0 +1,7 @@
+body{
+    background-image: url(./chimpokomonimg.jpg); /* Con esto ponemos imagenes de fondo en toda la pantalla */
+    background-position: center;
+	background-size: cover;
+	background-attachment: fixed; /* Con esto estamos centrando la imagen y evitando que se distorsione al momento de usarla */
+	text-align: center;
+} 

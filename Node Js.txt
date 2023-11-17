@@ -1,0 +1,8 @@
+localhost - así es como se identifica mi computador
+
+Comandos para interactuar en la Consola:
+
+ls - listar elementos de la carpeta
+cd .. - moverse a la carpeta anterior
+cd + nombreDeCarpeta - acceder a una carpeta
+CTRL + C en consola - cerrar el servidor

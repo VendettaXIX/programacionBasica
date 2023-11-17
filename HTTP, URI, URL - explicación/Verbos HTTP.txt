@@ -1,0 +1,5 @@
+Existen dos verbos principales (hay más) en el protocolo HTTP: 
+
+Get : permite solicitar un recurso
+
+Post: enviar datos al servidor

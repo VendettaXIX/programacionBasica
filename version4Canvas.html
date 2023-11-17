@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<HTML>
+    <head>
+        <meta charset="utf-8" />
+        <title>Chimpokomon GO!</title>
+        <link rel="stylesheet" href="./styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Necesario para que los dispositivos moviles puedan reconocer el Responsive Design -->
+        
+    </head>
+    
+    <body>
+        <h1 class="titulo"> CHIMPOKOMON GO!</h1>
+        <section id="seleccion-mascota">
+
+            <h2 class="subtitulo">Elige tu Chimpokomon!</h2>
+
+            <div id="contenedorTarjetas" class="tarjetas">
+                
+            </div>
+            <!-- Aqui van las mascotas -->
+
+            <button id="boton-mascota">Elige tu chimpokomon</button>
+        </section>
+
+        <section id="ver-mapa">
+
+            <h2 class="sub2">Recorre el mapa con tu Chimpokomon!!</h2>
+
+            <canvas id="mapa"></canvas>
+
+            <button class="botonMov Arriba" onmouseup="detenerMovimiento()" onmousedown="moverArriba()">Arriba</button>  <!-- OnClick: La acción que ejecuta el boton al ser presionado, la cual puede ser llamar a una función por
+            Onmousedown: el boton ejecuta una acción continua mientras se esté presionando el boton continuamente
+            Onmousep: el boton ejecuta una segunda acción al dejar de ser presionado -->
+            <div>
+                <button class="botonMov Izquierda" onmouseup="detenerMovimiento()" onmousedown= "moverIzquierda()">Izquierda</button> 
+                <button class="botonMov Abajo" onmouseup="detenerMovimiento()" onmousedown="moverAbajo()">Abajo</button> 
+                <button class="botonMov Derecha" onmouseup="detenerMovimiento()" onmousedown="moverDerecha()">Derecha</button> 
+            </div>
+            
+        </section>
+<!-- ------------------------------------SEGUNDA PANTALLA----------------------------- -->
+        <section id="seleccion-ataque">
+
+            <h2 class="sub2">Elige tu ataque!</h2>
+
+            <div id="contenedorAtaques">
+                
+            </div>
+
+            <section id="mensajes">
+                    <p id="resultado"> Mucha suerte, Maestro Chimpokomon! </p>
+
+                    <section id="reinicio"> 
+                        <button id="boton-reinicio">Reiniciar</button>
+                    </section>
+            </section>
+
+            <div class="ataques">
+                <div id="cartaJugador">
+                    <p id="vidas-jugador">0</p> 
+                    <p id="nombre-mascota-jugador"></p>
+                    <div id="ataquesJugador"></div>
+                </div>
+                
+                <div id="cartaEnemigo">
+                    <p id="vidas-PC">0</p> 
+                    <p id="nombre-mascota-pc"></p>
+                    <div id="ataquesEnemigo"></div>
+                </div>
+                
+            </div>
+           
+        </section>
+    
+    <script src = "./js/version4.js"></script>
+    </body>
+</HTML>

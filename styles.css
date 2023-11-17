@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&family=Source+Code+Pro:ital,wght@1,200;1,300&display=swap');
+
+body{
+    font-family: 'Rajdhani', sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    background-color: #219C90; 
+}
+
+#seleccion-mascota { /* Configuraciones de Flexbox para caja Padre */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 369px;
+    border: 10px solid #D83F31;
+    background: #E9B828;
+    box-shadow: 0 0 4px 6px #EE9322;
+    border-radius: 20px; /* Redondea los bordes de una caja */
+}
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #219C90;
+    width: 300px; /* Este es el ancho del título */
+    height: 70px;
+    background-color: #D83F31;
+    font-size: 32px;
+    border-radius: 20px;
+    margin: 10px
+} /* con la extensión .titulo llamamos al nombre de la clase, y con la extensión con # llamamos al nombre del ID */
+
+.subtitulo {
+    color: #219C90;
+    font-size: 35px;
+}
+
+.select-mascota {
+    width: 189px;
+    height: 100px;
+    background-color: #219C90;
+    padding: 10px;
+    box-sizing: border-box; /* Con esto el padding no afecta ni el ancho ni el largo de estructura de cajas */
+    margin: 10px; /* Los margenes sirven para separar unas cajas de otras */
+    border: 1px solid #EE9322;
+    border-radius: 20px;
+    display: flex;
+    color: #E9B828;
+    align-items: center;
+}
+.tarjetas, #contenedorAtaques {
+    display: flex;
+    gap: 10px;
+    
+}
+
+.tarjetas img {
+    width: 80px;
+}
+#boton-mascota {
+    width: 100px;
+    height: 50px;
+    background-color: greenyellow;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 20px;
+    border: 1px solid #EE9322;
+    box-shadow: 0 0 4px 6px #D83F31; /* Agrega sombra a un elemento tipo caja*/
+    border-radius: 20px;
+    font-family: 'Rajdhani', sans-serif;
+    color: #D83F31;
+}
+
+input {
+    display: none;
+}
+
+input:checked + label { /* Subclases y elementos hermanos */
+    background-color: #D83F31;
+
+}
+/* -------------------------------------SEGUNDA PANTALLA------------------------------ */
+ #ver-mapa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ }
+
+ #ver-mapa button {
+    width: 50px;
+    height: 25px;
+    background-color:#D83F31;
+    padding: 2px;
+    box-sizing: border-box;
+    margin: 2px;
+    border: 1px solid #EE9322;
+    border-radius: 2px;
+    font-family: 'Rajdhani', sans-serif;
+    color: greenyellow;
+ }
+ 
+ /* -------------------------------------botones de movimiento---------------------------------- */
+/* .botonMov {
+    display: grid;
+    gap: .25rem; 
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+.botonMov .Arriba {
+    grid-column: 2/3;
+}
+.botonMov .Derecha {
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+.botonMov .Abajo {
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+.botonMov .Izquierda {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+.botonMov .Vacio {
+    font-size: 1rem;
+}
+.botonMov .Vacio:hover {
+    background-color: rgb(206,214,220);
+} */
+  /* -------------------------------------botones de movimiento---------------------------------- */
+
+#seleccion-ataque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#contenedorAtaques {
+    display: flex;
+}
+
+.sub2 {
+    color: #D83F31;
+}
+
+.botonAtaque {
+    background-color: #EE9322;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px;
+    color: yellow;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+#mensajes {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 309px;
+    color: #EE9322;
+    background: #D83F31;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+#boton-reinicio {
+    border: transparent;
+    width: 100px;
+    height: 50px;
+    background-color: greenyellow;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 20px;
+    border: 1px solid #EE9322;
+    box-shadow: 0 0 4px 6px #D83F31; /* Agrega sombra a un elemento tipo caja*/
+    border-radius: 20px;
+    font-family: 'Rajdhani', sans-serif;
+    color: #D83F31;
+
+}
+
+.ataques {
+    display: grid;
+    grid-template-columns: 100px 100px;
+}
+
+#cartaJugador, #cartaEnemigo {
+    display: grid;
+    justify-items: center;
+}
+
+/* ------------------------Diseño responsivo----------------------------------------------------------------------------- */
+
+/* El max-width significa que aplica para los dispositivos desde 0px hasta los 360px, aprox el tamaño de de los teléfonos */
+@media (max-width: 560px) {
+    .tarjetas {
+        flex-direction: column;
+    }
+    #contenedorAtaques {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 300px) {
+    #ver-mapa div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
