@@ -24,7 +24,7 @@ const sectionMensaje = document.getElementById("resultado")
 const ataquesJugador = document.getElementById("ataquesJugador")
 const ataquesEnemigo = document.getElementById("ataquesEnemigo")
 /* --------------------------------------------------------------------------------------- */
-let jugadorId
+let jugadorId = null
 let opcionDeChimpokomon
 const contenedorTarjetas = document.getElementById("contenedorTarjetas") /* Esta variable es la ID del div en donde alamcenamos las tarjetas de personaje */
 let imputUribe 
@@ -211,12 +211,14 @@ function seleccionarMascota() {
     
         seleccionarChimpokomon(mascotaJugador)
 
-        iniciarMapa()
         extraerAtaques(mascotaJugador) /* Esta función traerá los ataques específicos de la mascota seleccionada */
+
+        iniciarMapa()
+        
     }
 
 function seleccionarChimpokomon(mascotaJugador) {
-    fetch(`http://localhost:8080/chimpokomon/${jugadorId}`, {
+    fetch(`http://localhost:8080/programacionBasica/${jugadorId}`, {
         method: "post", /* Esta es una petición que ENVIA datos al servidor, por lo cual no se espera una respuesta d ella */
         headers: {
             "Content-Type":"application/json" /* Significa que estamos enviando un JSON */

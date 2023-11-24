@@ -7,7 +7,7 @@ const app = express() /* Esta es una aplicación que representa al servidor y se
 app.use(cors()) /*  */
 app.use(express.json()) /* Para que soporte peticiones de tipo JSON sin errores */
 
-const jugadores = []
+const jugadores=[]
 
 class Jugador {
     constructor(id) {
@@ -39,16 +39,22 @@ app.get("/unirse", (req, res) => { /* req: requerido, res: respuesta */
     res.send(id)
 }) /* Recibe dos parametros: el primero es en que url va a solicitar el recurso, el segundo es cómo procesar y responder a la petición. Cada vez que un cliente solicite un recurso, realiza una acción. */
 
-app.post("/chimpokomon/:jugadorId" /* Así se define una variable tipo parámetro en express, es una variable que se define en la URL directamente */, (req, res) => {
+app.post("/programacionBasica/:jugadorId" /* Así se define una variable tipo parámetro en express, es una variable que se define en la URL directamente */, (req, res) => {
     const jugadorId = req.params.jugadorId || "" /* Con esto importamos el ID del jugador de los parámetros */
-    const nombreChimpo = req.body.chimpokomon || "" /* Con esto importamos del Body del JSON el nombre del chimpokomon seleccionado */
-    const chimpokomon = new Mascota(nombreChimpo)
+    const nombre = req.body.chimpokomon || "" /* Con esto importamos del Body del JSON el nombre del chimpokomon seleccionado */
+    const chimpokomon = new Mascota(nombre)
 
-    const jugadorIndex = jugadores.findIndex((jugador) => jugadorId === jugador) /* Verificamos que el ID del usuario esté registrado en la lista de jugadores. La función findIndex retorna -1 si no se encontro el objeto, y si lo encuentra retorna el número de lista de dicho objeto  */
+    const jugadorIndex = jugadores.findIndex((jugador) => jugadorId === jugador.id) /* Verificamos que el ID del usuario esté registrado en la lista de jugadores. La función findIndex retorna -1 si no se encontro el objeto, y si lo encuentra retorna el número de lista de dicho objeto  */
 
     if (jugadorIndex >= 0) {
         jugadores[jugadorIndex].asignarMascota(chimpokomon) /* Con esto, le asignamos al jugador la mascota seleccionada */
     }
+
+app.post("/programacionBasica/:jugadorId/posicion", (req,res) => {
+    const jugadorId = req.params.jugadorId || ""
+    const x = req.body.x || ""
+    const y = req.body.y || ""
+})
 
     console.log(jugadores)
     console.log(jugadorId) /* Con esta estructura estamos registrando el Id del usuario en el servidor */

@@ -7,7 +7,7 @@ const botonReinicio = document.getElementById("boton-reinicio")
 const sectionSeleccionarM = document.getElementById("seleccion-mascota")
 
 const spanmascota = document.getElementById("nombre-mascota-jugador")
-
+/* zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz */
 /* --------------------------------------Variables del Mapa........................ */
 const sectionVerMapa = document.getElementById("ver-mapa")
 const mapa = document.getElementById("mapa")
