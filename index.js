@@ -16,6 +16,10 @@ class Jugador {
     asignarMascota(chimpokomon) {
         this.chimpokomon = chimpokomon
     }
+    actualizarPosicion(x,y) {
+        this.x = x
+        this.y = y
+    }
 }
 
 class Mascota {
@@ -49,17 +53,25 @@ app.post("/programacionBasica/:jugadorId" /* Así se define una variable tipo pa
     if (jugadorIndex >= 0) {
         jugadores[jugadorIndex].asignarMascota(chimpokomon) /* Con esto, le asignamos al jugador la mascota seleccionada */
     }
-
-app.post("/programacionBasica/:jugadorId/posicion", (req,res) => {
-    const jugadorId = req.params.jugadorId || ""
-    const x = req.body.x || ""
-    const y = req.body.y || ""
-})
-
     console.log(jugadores)
     console.log(jugadorId) /* Con esta estructura estamos registrando el Id del usuario en el servidor */
     res.end()
 })
+
+app.post("/programacionBasica/:jugadorId/posicion", (req,res) => { /* Con esto estamos buscando transmitir las coordenadas del usuario al backend, de forma similar a como se hizo arriba con la mascota del usuario */
+    const jugadorId = req.params.jugadorId || ""
+    const x = req.body.x || 0
+    const y = req.body.y || 0
+
+    const jugadorIndex = jugadores.findIndex((jugador) => jugadorId === jugador.id) 
+
+    if (jugadorIndex >= 0) {
+        jugadores[jugadorIndex].actualizarPosicion(x,y) 
+    }
+
+    res.end()
+})
+
 
 app.listen(puerto, () => { /* 8080 es el puerto elegido por el cual se escuchan las peticiones*/
     console.log("Servidor funcionando")

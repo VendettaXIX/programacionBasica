@@ -407,6 +407,9 @@ function pintarCanvas() {
         mapa.height
     )
     mascotaJugadorObjeto.pintarChimpokomon()
+
+    enviarPosicion(mascotaJugadorObjeto.x,mascotaJugadorObjeto.y) /* Esta función nos servirá para enviar los datos de la posición al server */
+
     UribeCopEnemigo.pintarChimpokomon()
     MomoperroEnemigo.pintarChimpokomon()
     VenecosaurioEnemigo.pintarChimpokomon()
@@ -417,7 +420,19 @@ function pintarCanvas() {
         revisarColisión(VenecosaurioEnemigo)
     }
 }
-   
+
+function enviarPosicion(x,y) {
+    fetch(`http://localhost:8080/programacionBasica/${jugadorId}/posicion`, {
+        method: "post", 
+        headers: {
+            "Content-Type":"application/json" 
+        },
+        body: JSON.stringify({
+            x,
+            y /* Esta forma de escritura es válida cuando tenemos lo mismo para clave y para valor en el JSON */
+        })
+    })  
+ }
 
 /* Esta es una configuración alternativa de movimiento es para un movimiento discontinuo:
 function moverArriba() {
