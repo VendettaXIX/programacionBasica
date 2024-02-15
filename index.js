@@ -58,7 +58,7 @@ app.post("/programacionBasica/:jugadorId" /* Así se define una variable tipo pa
     res.end()
 })
 
-app.post("/programacionBasica/:jugadorId/posicion", (req,res) => { /* Con esto estamos buscando transmitir las coordenadas del usuario al backend, de forma similar a como se hizo arriba con la mascota del usuario */
+app.post("/programacionBasica/:jugadorId/posicion", (req,res) => { /* Con esto estamos buscando transmitir las COORDENADAS del usuario al backend, de forma similar a como se hizo arriba con la mascota del usuario */
     const jugadorId = req.params.jugadorId || ""
     const x = req.body.x || 0
     const y = req.body.y || 0
@@ -68,10 +68,23 @@ app.post("/programacionBasica/:jugadorId/posicion", (req,res) => { /* Con esto e
     if (jugadorIndex >= 0) {
         jugadores[jugadorIndex].actualizarPosicion(x,y) 
     }
+/* ------------------------------------------------------------------------------------------ultima clase---------------------- */
+    const enemigos = jugadores.filter((jugador) => jugadorId !== jugador.id) /* De esta manera filtramos a todos los demas jugadores del jugador elegido, de taL forma los catalogamos como enemigos en el Backend */
 
-    res.end()
+    res.send({ /* Retornamos al Frontent la lista de todos los enemigos en forma de JSON */
+        enemigos
+    })
+
 })
-
+/* -----------------------------------------------CLASE 83------------------------------------------------------ */
+app.get("/programacionBasica/:jugadorId/ataques", (req, res) => { /* Envíamos la lista de ataques al frontent */
+    const jugadorId = req.params.jugadorId || ""
+    const jugador = jugadores.find( (jugador) => jugador.id === jugadorId) /* la función find recibe una función que devuelve los valores de Verdadero o Falso */
+    res.send({
+      ataques: jugador.ataques || []
+    })
+})
+/* ------------------------------------------------CLASE 83--------------------------------------------------------- */
 
 app.listen(puerto, () => { /* 8080 es el puerto elegido por el cual se escuchan las peticiones*/
     console.log("Servidor funcionando")

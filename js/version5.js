@@ -67,6 +67,7 @@ let vidasJugador = 3
 let vidasPC = 3
 /* ---------------------------------------------------------------------------------------------- */
 let chimpokomones = [] /* Esta es la manera de definir un arreglo */
+let chimpokomonesEnemigo = []
 
 class Chimpokomon {
     constructor(nombre, foto, vida, fotoMapa) {
@@ -431,8 +432,16 @@ function enviarPosicion(x,y) {
             x,
             y /* Esta forma de escritura es válida cuando tenemos lo mismo para clave y para valor en el JSON */
         })
-    })  
- }
+    })
+     .then (function(res) {
+        if (res.ok) {
+            res.json() /* Debido a que esto es una promesa del código */
+                .then(function ({enemigos}) { /* Con los corchetes dentro del paréntesis se está utilizando una sintaxis que sirve para extraer de la respuesta la variable "enemigos" */
+                    console.log(enemigos)
+                })
+        }
+     })
+}
 
 /* Esta es una configuración alternativa de movimiento es para un movimiento discontinuo:
 function moverArriba() {
